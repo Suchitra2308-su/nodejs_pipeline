@@ -1,4 +1,4 @@
-name: Node.js CI/CDD
+name: Node.js CI/CD
 
 on:
   push:
@@ -21,8 +21,15 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: skip tests
-      run: echo "no test to run"
+    - name: Skip tests
+      run: echo "No tests to run"
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Build Docker image
       run: docker build -t suchitrar23/node-backend .
@@ -36,5 +43,10 @@ jobs:
     - name: Push Docker image
       run: docker push suchitrar23/node-backend
 
-    - name: Deploy (example step, customize for your environment)
+  deploy:
+    runs-on: ubuntu-latest
+    needs: docker
+    steps:
+    - name: Deploy application
       run: echo "Deployment step (e.g., kubectl or SSH commands)"
+
