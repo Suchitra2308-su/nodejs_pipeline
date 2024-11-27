@@ -25,7 +25,7 @@ jobs:
       run: echo "no test to run"
 
     - name: Build Docker image
-      run: docker build -t node-backend .
+      run: docker build -t suchitrar23/node-backend .
 
     - name: Login to Docker Hub
       uses: docker/login-action@v2
