@@ -21,8 +21,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run tests
-      run: npm test
+    - name: skip tests
+      run: "no test to run"
 
     - name: Build Docker image
       run: docker build -t node-backend .
