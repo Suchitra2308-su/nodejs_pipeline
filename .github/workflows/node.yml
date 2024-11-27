@@ -34,7 +34,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Push Docker image
-      run: docker push <your-dockerhub-username>/node-backend
+      run: docker push suchitrar23/node-backend
 
     - name: Deploy (example step, customize for your environment)
       run: echo "Deployment step (e.g., kubectl or SSH commands)"
